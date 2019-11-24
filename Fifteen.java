@@ -13,22 +13,27 @@ public class Fifteen {
         return result;
     }
 
-    public static boolean isDigit(String[] array){
-        int[] arrOfDigits = {0,1,2,3,4,5,6,7,8,9};
-        boolean flag = false;
-        for(int i = 0; i < array.length; i++ ){
-            for(int j = 0; j < arrOfDigits.length; j ++){
-                try{
-                    if (arrOfDigits[j] == Integer.parseInt(array[i])) {
-                        flag = true;
-                        break;
-                    }
-                }catch(NumberFormatException e){
-                    return false;
-                }
-            }
+    public static void main(String[] args) {
+        String s = "2,4,4,6,5";
+        List<char[][]> list = draw(s);
+
+        char[][] result = getArray(list);
+
+        for (char[] element: result
+        ) {
+            System.out.println(element);
         }
-        return flag;
+    }
+
+    public static boolean isDigit(String[] array){
+        try{
+            for (int i = 0; i < array.length; i++){
+                Integer.parseInt(array[i]);
+            }
+        }catch (NumberFormatException e){
+            return false;
+        }
+        return true;
     }
 
     public static List<char[][]> draw(String str){
